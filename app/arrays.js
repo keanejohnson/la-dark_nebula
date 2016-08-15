@@ -37,23 +37,46 @@ exports.arraysAnswers = {
   },
 
   insert : function(arr, item, index) {
-    var newArr = arr.splice(index, 0, item);
-    return newArr;
+    arr.splice(index, 0, item);
+    return arr;
   },
 
   count : function(arr, item) {
-
+    var count = 0
+    for (var i = 0; i < arr.length; i++){
+      if (arr[i] == item) {
+        count += 1
+      };
+    };
+    return count;
   },
 
   duplicates : function(arr) {
-
+    var sortedArr = arr.sort();
+    var duplicates = []
+    for (var i = 0; i < sortedArr.length; i++){
+      if (sortedArr[i] == sortedArr[i+1] && !duplicates.includes(sortedArr[i])){
+        duplicates.push(sortedArr[i]);
+      };
+    };
+    return duplicates;
   },
 
   square : function(arr) {
-
+    var squaresArr = []
+    for (var i = 0; i < arr.length; i++){
+      squaresArr.push(arr[i]*arr[i]);
+    };
+    return squaresArr;
   },
 
   findAllOccurrences : function(arr, target) {
-
+    var indices = []
+    for (var i =0; i < arr.length; i++){
+      if (arr[i] == target){
+        indices.push(i)
+      };
+    };
+    return indices;
   }
 };
